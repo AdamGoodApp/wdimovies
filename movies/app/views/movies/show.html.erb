@@ -1,0 +1,65 @@
+
+
+<h1>
+  <%= @movie.name %>
+</h1>
+
+<% if @movie.movie_image.details.url %>
+  <%= image_tag @movie.movie_image.details.url %>
+<% end %>
+
+<p>
+  <b>Year:</b>
+  <%= @movie.year %>
+</p>
+
+<p>
+  <b>Genre:</b>
+  <%= @movie.genre %>
+</p>
+
+<p>
+  <b>Rating:</b>
+  <%= @movie.rating %>
+</p>
+
+<p>
+  <b>Float:</b>
+  <%= @movie.float %>
+</p>
+
+<p>
+  <b>Storyline:</b>
+  <%= @movie.storyline %>
+</p>
+
+<p>
+  <b>Certificate:</b>
+  <%= @movie.certificate %>
+</p>
+
+<p>
+  <b>Gross:</b>
+  <%= @movie.gross %>
+</p>
+
+<p>
+  <b>Runtime:</b>
+  <%= @movie.runtime %>
+</p>
+
+<p>
+  <b>Release date:</b>
+  <%= @movie.release_date %>
+</p>
+
+<p>
+  <b>Actors:</b>
+  <% @movie.actors.each do |actor| %>
+  <p> <%= link_to actor.name, actor_path(actor) %></p>
+    <% end %>
+</p>
+
+
+<%= link_to 'Edit', edit_movie_path(@movie) %> |
+<%= link_to 'Back', movies_path %>

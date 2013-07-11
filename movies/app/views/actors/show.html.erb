@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>
+  <%= @actor.name %>
+</h1>
+
+<% if @actor.actors_image.details.url %>
+  <%= image_tag @actor.actors_image.details.url %>
+<% end %>
+
+<p>
+  <b>Age:</b>
+  <%= @actor.age %>
+</p>
+
+<p>
+  <b>Country:</b>
+  <%= @actor.country %>
+</p>
+
+<p>
+  <b>Rating:</b>
+  <%= @actor.rating %>
+</p>
+
+<p>
+  <b>Movies:</b>
+  <% @actor.movies.each do |movie| %>
+  <p> <%= link_to movie.name, movie_path(movie) %></p>
+    <% end %>
+</p>
+
+
+<%= link_to 'Edit', edit_actor_path(@actor) %> |
+<%= link_to 'Back', actors_path %>
